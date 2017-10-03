@@ -7,7 +7,7 @@ assignment: CSCI 262 Project 2 - Evil Hangman
 
 author: Lane Starritt
 
-last modified: 2017-09-28
+last modified: 2017-10-03
  */
 
 #include <iostream>
@@ -21,7 +21,7 @@ using namespace std;
 
 // constructor
 hangman::hangman() { 
-    // TODO: Read in and store words from dictionary.txt
+    // TODO: Read in and store words from _dictionary.txt
 
     ifstream dic ("dictionary.txt", ifstream::in);
     if (dic.fail()){
@@ -31,16 +31,11 @@ hangman::hangman() {
         cout << "Initializing dictionary..." << endl;
     }
 
-    vector <map <string, string>> dict;
-    for (int i: dic){
-        map <string, string> temp;
-        string curr;
-        dic >> string stemp;
-        for(int j = 0; j < stemp.lenght(); j++){
-            curr.emplace(stemp.at(j));
-        }
-        temp.insert(curr, queue<char>);
-        dict.push_back(temp);
+    while (!dic.eof()){
+        string temp;
+        dic >> temp;
+        _dict[temp.size()].push_back(temp);
+        cout << _dict[temp.size()].back() << endl;
     }
 
     // TODO: Initialize game state variables

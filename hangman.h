@@ -1,5 +1,7 @@
 #ifndef _HANGMAN_H
 #define _HANGMAN_H
+#include <map>
+#include <vector>
 
 /*
     hangman.h
@@ -54,7 +56,7 @@ public:
     string get_hidden_word();
 
 private:
-    
+    map <int, vector <string>> _dict;   
 };
 
 #endif
