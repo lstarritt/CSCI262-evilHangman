@@ -58,7 +58,7 @@ int main() {
         cout << endl;
 
         set <int> w_lens_set;
-        for(int i = 0; i < 30; i++){
+        for(int i = 0; i < 30; i++){//longest word is suposedly 29, if i remember right
             if(dict.find(i) != dict.end()){
                 w_lens_set.insert(i);
             }
@@ -92,12 +92,7 @@ int main() {
         
         bool won = false, lost = false;
         while (!won && !lost) {
-            cout << "Your word is: ";
-            for(char c: the_word){
-                cout << c;
-            }
-            cout << endl << endl;
-
+            cout << "Your word is: " << the_word << endl;
 
             if (guessed.size() == 0) {
                 cout << "You have not yet guessed any letters." << endl;
@@ -120,10 +115,12 @@ int main() {
             cout << endl;
             guessed.emplace(guess);
 
+            cout << "___" << guess << "___" << endl;
+
             //proccess the guess.
             bool good_guess;
             map <string, int> cur_families;
-            for (pair <string, string>  p: families){
+            for (pair <string, string> p: families){
                 for(int i = 0; i < word_length; i++){
                     p.second.clear();
                     if(p.first[i] == guess){
@@ -153,7 +150,17 @@ int main() {
                 num_guesses--;
             }
 //impliment win code later
-            cout << "Congratulations! You won the game!" << endl;
+            bool game_won = true;
+            for (int i = 0; i < the_word.length(); i++){
+                if (the_word.at(i) == '_'){
+                    game_won = false;
+                }
+            }
+
+            if (game_won){
+                cout << "Congratulations! You won the game!" << endl;
+            }
+
             if(num_guesses == 0){
                 cout << "Oh no! You lost!!!" << endl;
                 lost = true;

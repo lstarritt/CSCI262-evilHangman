@@ -1,6 +1,6 @@
 CC=g++
 CFLAGS=-c -g -std=c++11
-SOURCES=main.cpp hangman.cpp
+SOURCES=main.cpp #hangman.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 LIBS=
 LDFLAGS=

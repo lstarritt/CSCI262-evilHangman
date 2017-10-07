@@ -9,4 +9,4 @@ Description: Evil Hangman - an algorithm that plays hangman, but eviler!
 Resources: C++ reference (duh), probably I had a roomate look at it at some 
     point (Jensen Krone), but I don't remember.  This is being witten less 
     than 2 hours before you get the file.
-
+Note: I've had like, 3 hours to work on this total.  I need to work less.
